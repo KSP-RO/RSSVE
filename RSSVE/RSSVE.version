@@ -1,20 +1,20 @@
 {
     "NAME"      : "RSSVE",
-    "HOMEPAGE"  : "https://github.com/PhineasFreak/RSSVE",
-    "DOWNLOAD"  : "https://github.com/PhineasFreak/RSSVE/releases",
-    "URL"       : "https://raw.githubusercontent.com/PhineasFreak/RSSVE/master/RSSVE/RSSVE.version",
+    "HOMEPAGE"  : "https://github.com/KSP-RO/RSSVE",
+    "DOWNLOAD"  : "https://github.com/KSP-RO/RSSVE/releases",
+    "URL"       : "https://raw.githubusercontent.com/KSP-RO/RSSVE/master/RSSVE/RSSVE.version",
     "GITHUB" :
     {
-        "USERNAME"          : "PhineasFreak",
+        "USERNAME"          : "KSP-RO",
         "REPOSITORY"        : "RSSVE",
         "ALLOW_PRE_RELEASE" : false
     },
     "VERSION" :
     {
         "MAJOR" : 1,
-        "MINOR" : 4,
-        "PATCH" : 5,
-        "BUILD" : 2
+        "MINOR" : 5,
+        "PATCH" : 0,
+        "BUILD" : 1
     },
     "KSP_VERSION_MIN" :
     {
@@ -25,7 +25,7 @@
     "KSP_VERSION_MAX" :
     {
         "MAJOR" : 1,
-        "MINOR" : 6,
-        "PATCH" : 9
+        "MINOR" : 7,
+        "PATCH" : 3
     }
 }
