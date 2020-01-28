@@ -1,0 +1,291 @@
+==================================================
+RSSVE v1.6.1-RC1 for KSP 1.6.1 (2019-05-06)
+==================================================
+
+Change Log:
+
+    • Added a version file.
+    • Increased the amount of the Venus and Titan surface haze.
+    • Tweaked the Rayleigh scattering colors of all bodies.
+    • Tweaked the colors of the Saturn clouds.
+
+Bug Fixes:
+
+    • Fixed some EVE cloud integration issues introduced with the v0.0540 Scatterer release.
+    • Fixed some CTTP terrain tiling issues.
+    • Fixed the dark banding appearing over the atmosphere rim of some bodies.
+    • Fixed the green line artifact appearing on the Earth's horizon as seen from the surface.
+    • Fixed the Mie scattering colors of all bodies.
+    • Fixed the incorrect Saturn cloud layer cubemap indexes.
+    • Fixed the colors of the Titan oceans.
+
+Known Issues:
+
+    • The cloud texture maps may break upon reloading a save while in-flight.
+    • The Earth city lights may sometimes appear as black patches from orbit.
+    • The Sun corona may have a black outline appear in some cases.
+
+==================================================
+RSSVE v1.4.5-RC1 for KSP 1.4.5 (2019-03-19)
+==================================================
+
+Change Log:
+
+    • Compatibility update for the KSP 1.4.5 and Scatterer v0.0540 releases.
+    • Scatterer is now considered as a suggested mod and not a hard dependency.
+    • Added a new UI option for toggling the EVE cloud shadows.
+    • Added Community Terrain Textures Pack (CTTP) support for select bodies (Venus, Earth, Mars, Titan, Triton & Pluto).
+    • Converted all single layered cubemaps to use the green channel to minimize compression artifacts (courtesy of Poodmund).
+    • Updated the version checker to support all possible KSP versions from 1.4.0 through 1.6.9.
+    • Removed the redundant high resolution Earth city lights texture map.
+    • Removed the Uranus cloud maps.
+    • Removed the high altitude Earth cloud layer to improve performance and the overall visual accuracy.
+
+Bug Fixes:
+
+    • Fixed the transitions between PQS and ScaledSpace for most of the bodies.
+    • Fixed the orientation of the Earth clouds.
+    • Fixed the Earth city lights texture map missing its northern portion.
+    • Fixed the Earth city lights sometimes appearing blocky from low orbital altitudes.
+    • Fixed some seams appearing in the Earth cloud detail texture.
+
+Known Issues:
+
+    • The cloud texture maps may break upon reloading a save while in-flight.
+    • The Earth city lights may sometimes appear as black patches from orbit.
+
+==================================================
+RSSVE v1.3.1-6 for KSP 1.3.1 (2018-12-23)
+==================================================
+
+Change Log:
+
+    • Added high resolution cloud texture maps for Venus, Jupiter and Mars.
+    • Added the capability to access all user-defined options via the Difficulty Page menu.
+    • Tweaked the transitions between PQS and ScaledSpace.
+    • Improved the performance of the volumetric clouds.
+    • Updated the Sun corona texture map.
+    • Updated the Earth aurora texture map.
+    • Updated the Saturn cloud texture map.
+    • Disabled the EVE cloud integration feature for all gas giants.
+    • Removed the Uranus rings (they are now part of RSSExpansion).
+
+Bug Fixes:
+
+    • Fixed the Earth horizon appearing overexposed from the ground.
+    • Fixed the Earth and Titan ocean foam levels.
+    • Fixed the Earth city lights being difficult to see from orbit.
+    • Fixed the incorrect altitude levels of the Titan lakes.
+    • Fixed the texture seams appearing in some cubemaps.
+    • Fixed the tiling issues appearing in some detail texture maps.
+    • Fixed the cloud texture mipmaps breaking the overall appearance of the cloud layers from up close.
+    • Fixed the cloud UV noise parameters for better compatibility with the newer EVE versions.
+    • Fixed some general issues with the Scatterer configuration files for better compatibility with the newer Scatterer versions.
+
+Known Issues:
+
+    • The atmospheric scatter effects may not work in low orbital altitudes due to a known Scatterer bug.
+    • The city lights may appear blocky from low orbital altitudes.
+    • The cloud texture maps may break upon reloading a save while in-flight.
+
+==================================================
+RSSVE v1.3.1-5 for KSP 1.3.1 (2018-05-23)
+==================================================
+
+Change Log:
+
+    • Added two new cloud layers to Uranus.
+    • Added cloud details to Jupiter, Saturn, Uranus and Neptune.
+    • Added a better texture for the volumetric cloud particles.
+    • Converted all main texture maps into cubemaps.
+    • Updated the file and folder structure.
+    • Reverted the city lights detail texture maps to the RC4 ones.
+    • Minimized the hard transitioning between PQS and ScaledSpace.
+
+Bug Fixes:
+
+    • Fixed the Earth surface appearing overexposed.
+    • Fixed the color of the Mars atmosphere and tweaked it's brightness.
+    • Fixed the incorrect assembly version number.
+    • Fixed the detail appearance distances of many cloud layers.
+
+Known Issues:
+
+    • The city lights may appear blocky from low orbital altitudes.
+    • The cloud texture maps may break upon reloading a save while in-flight.
+    • The Saturn rings may sometimes appear to cast hard shadows or be completely black.
+
+==================================================
+RSSVE v1.3.1-4 for KSP 1.3.1 (2018-04-11)
+==================================================
+
+Change Log:
+
+    • Tweaked the Earth exposure values.
+
+Bug Fixes:
+
+    • Fixed the night side of the bodies appearing too bright.
+
+Known Issues:
+
+    • The city lights may appear blocky from low orbital altitudes.
+    • The transitioning between PQS and ScaledSpace is not as soft as it should.
+    • The cloud texture maps may break upon reloading a save while in-flight.
+    • The Saturn rings may sometimes appear to cast hard shadows or be completely black.
+
+==================================================
+RSSVE v1.3.1-3 for KSP 1.3.1 (2018-04-06)
+==================================================
+
+Bug Fixes:
+
+    • Fixed the EVE city lights patch creating Module Manager errors.
+
+Known Issues:
+
+    • The city lights may appear blocky from low orbital altitudes.
+    • The transitioning between PQS and ScaledSpace is not as soft as it should.
+    • The cloud texture maps may break upon reloading a save while in-flight.
+    • The Saturn rings may sometimes appear to cast hard shadows or be completely black.
+
+==================================================
+RSSVE v1.3.1-2 for KSP 1.3.1 (2018-04-04)
+==================================================
+
+Change Log:
+
+    • Tweaked the Earth Scatterer atmosphere terminator.
+    • Tweaked the color of the Sun color as reflected by the Earth oceans.
+    • Tweaked the rim blend and power values of all bodies.
+
+Known Issues:
+
+    • The city lights may appear blocky from low orbital altitudes.
+    • The transitioning between PQS and ScaledSpace is not as soft as it should.
+    • The cloud texture maps may break upon reloading a save while in-flight.
+    • The Saturn rings may sometimes appear to cast hard shadows or be completely black.
+
+==================================================
+RSSVE v1.3.1-1 for KSP 1.3.1 (2018-03-30)
+==================================================
+
+Change Log:
+
+    • Compatibility update for the KSP 1.3.1 and Scatterer v0.0320b releases.
+    • Features like the Earth city lights, the terrain detail textures and the volumetric clouds, can now be easily disabled.
+    • Enabled the EVE cloud integration feature for Jupiter and Saturn.
+    • Added a custom Sun corona texture.
+    • Updated the Earth city lights detail texture maps to fix some issues with moire patterns.
+    • Tweaked the Venus cloud color to be less yellow.
+    • Tweaked the Titan cloud color to be less orange.
+    • Removed the volumetric clouds from the gas giants.
+
+Bug Fixes:
+
+    • Fixed the DirectX 11 and OpenGL "featureless sphere" bug.
+    • Fixed the main cloud texture maps of some bodies appearing fuzzy.
+    • Fixed the hard terminators appearing as shells over some bodies.
+    • Fixed the Sun surface colors.
+
+Known Issues:
+
+    • The city lights may appear blocky from low orbital altitudes.
+    • The transitioning between PQS and ScaledSpace is not as soft as it should.
+    • The cloud texture maps may break upon reloading a save while in-flight.
+    • The Saturn rings may sometimes appear to cast hard shadows or be completely black.
+
+==================================================
+RSSVE v1.2.2-RC4 for KSP 1.2.2 (2017-09-03)
+==================================================
+
+Change Log:
+
+    • Compatibility update for the Scatterer v0.0320 release.
+    • Enabled the Scatterer cloud integration and ring shadow features.
+    • Rebuilt all Scatterer profiles from scratch (courtesy of RSSVE collaborator Lukas "Theysen" Theisen).
+    • Added a custom Saturn ring texture for the new ring shadow feature.
+    • Added detail surface textures to Earth and Triton.
+    • Added some missing volumetric clouds to Saturn, Uranus and Neptune.
+    • Updated the aurora texture map for Earth.
+    • Updated the cloud texture maps for Jupiter, Saturn and Uranus.
+    • Improved the appearance and overall performance impact of the volumetric clouds.
+    • Improved the appearance of the city day and night detail texture maps.
+    • Tweaked the apparent brightness and movement of the Earth auroras.
+    • Tweaked the apparent light levels on the surface of Venus.
+    • Decreased the opacity of the Titan cloud texture map.
+    • Reduced the apparent brightness of the Earth surface from orbit.
+
+Bug Fixes:
+
+    • Fixed the ground flickering on Earth.
+    • Fixed the Earth cloud clipping for altitudes less than 167 km.
+    • Fixed the altitude of the gas giants cloud layers (still wrong by a factor of ten though).
+    • Fixed the altitude of the Venus cloud layer.
+
+Known Issues:
+
+    • The city lights may appear blocky from low orbital altitudes.
+    • The transitioning between PQS and ScaledSpace is not as soft as it should.
+    • The cloud texture maps may break upon reloading a save while in-flight.
+    • The Saturn ring may appear to cast hard shadows.
+    • Some of the bodies may appear as featureless spheres under DirectX 11 or OpenGL. Affected users can enable the Scatterer PlanetFix patch.
+
+==================================================
+RSSVE v1.2.2-RC3 for KSP 1.2.2 (2017-02-26)
+==================================================
+
+Change Log:
+
+    • Compatibility update for the Scatterer v0.0300 release.
+    • Many small tweaks to the atmospheric scatter effects of all bodies.
+    • New binary assemblies for KSP 1.1.3 users (for use with EVE 1.1-3 and Scatterer v0.0255).
+    • Re-factored the file and folder structure to ease management and development.
+    • Remade and simplified the Earth aurora main and detail textures.
+    • Increased the apparent brightness of the Moon (might still need some tweaking).
+    • Titan will now appear less bright and saturated than before.
+    • The Earth aurora is now less visible in the daylight.
+    • Removed an old and unused Earth cloud main texture.
+    • Removed the Earth PQS texture (was a performance hog and did not look good anyway).
+
+Bug Fixes:
+
+    • None so far.
+
+Known Issues:
+
+    • The city lights may appear to fade in/out or flicker.
+    • The new Scatterer cloud integration and Kopernicus ring shader features are currently disabled.
+    • The bodies may appear as featureless spheres under DirectX 11 or OpenGL. A hotfix patch has been issued as a temporary solution.
+
+==================================================
+RSSVE v1.2.2-RC2 for KSP 1.2.2 (2016-12-16)
+==================================================
+
+Change Log:
+
+    • Improved the Earth Scatterer configs (courtesy of RSSVE collaborator Lukas "Theysen" Theisen).
+
+Bug Fixes:
+
+    • Softer transition between the Earth PQS and ScaledSpace.
+
+Known Issues:
+
+    • The city lights may appear to fade in/out or flicker.
+
+==================================================
+RSSVE v1.2.2-RC1 for KSP 1.2.2 (2016-12-12)
+==================================================
+
+Change Log:
+
+    • First release candidate for Real Solar System Visual Enhancements.
+
+Bug Fixes:
+
+    • None so far.
+
+Known Issues:
+
+    • None so far.
