@@ -50,4 +50,4 @@ using System.Runtime.InteropServices;
 //  are loaded in the correct order.
 //  This attribute is not currently used but it is included here for completeness.
 
-[assembly: KSPAssembly("RSSVE", 1, 1)]
+[assembly: KSPAssembly("RSSVE", 1, 2)]
