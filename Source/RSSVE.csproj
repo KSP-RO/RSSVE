@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -34,31 +34,27 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-            <HintPath>C:\Kerbal Space Program\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
-            <Private>False</Private>
+          <HintPath>..\..\..\..\..\Kerbal Space Program 1.8.1 RSSRO\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
-        <Reference Include="System"/>
+        <Reference Include="System" />
         <Reference Include="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-            <HintPath>C:\Kerbal Space Program\KSP_x64_Data\Managed\System.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\..\Dependencies\1.8.1\Managed\UnityEngine.dll</HintPath>
-            <Private>False</Private>
+          <HintPath>..\..\..\..\..\Kerbal Space Program 1.8.1 RSSRO\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-            <HintPath>..\..\Dependencies\1.8.1\Managed\UnityEngine.CoreModule.dll</HintPath>
-            <Private>False</Private>
+          <HintPath>..\..\..\..\..\Kerbal Space Program 1.8.1 RSSRO\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="EVEConfigCheck.cs"/>
-        <Compile Include="InstallationCheck.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="Settings.cs"/>
-        <Compile Include="StartupCheck.cs"/>
-        <Compile Include="Utilities.cs"/>
-        <Compile Include="VersionCheck.cs"/>
+        <Compile Include="EVEConfigCheck.cs" />
+        <Compile Include="InstallationCheck.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Settings.cs" />
+        <Compile Include="StartupCheck.cs" />
+        <Compile Include="Utilities.cs" />
+        <Compile Include="VersionCheck.cs" />
     </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
