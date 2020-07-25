@@ -48,7 +48,7 @@ namespace RSSVE
         /// <returns>
         /// Does not return a value.
         /// </returns>
-        void OnDestroy()
+        private void OnDestroy()
         {
             try
             {
@@ -94,28 +94,28 @@ namespace RSSVE
                 //  Check if the mod's assembly is placed at the correct location. This will
                 //  also detect duplicate copies because only one can be in the right place.
 
-                var BaseAssembly = AssemblyLoader.loadedAssemblies
+                var baseAssembly = AssemblyLoader.loadedAssemblies
                     .Where(asm => asm.assembly.GetName().Name.Equals(Assembly.GetExecutingAssembly().GetName().Name))
                     .Where(asm => asm.url != Constants.AssemblyPath);
 
-                if (BaseAssembly.Any())
+                if (baseAssembly.Any())
                 {
-                    var BadPaths = BaseAssembly.Select(asm => asm.path).Select(p =>
+                    var badPaths = baseAssembly.Select(asm => asm.path).Select(p =>
                         Uri.UnescapeDataString(new Uri(Path.GetFullPath(KSPUtil.ApplicationRootPath))
                             .MakeRelativeUri(new Uri(p)).ToString().Replace('/', Path.DirectorySeparatorChar)));
 
-                    var BadPathsString = string.Join("\n", BadPaths.ToArray());
+                    var badPathsString = string.Join("\n", badPaths.ToArray());
 
                     Notification.Logger(Constants.AssemblyName, "Error",
-                        string.Format("Incorrect installation, bad path(s): {0}", BadPathsString));
+                        $"Incorrect installation, bad path(s): {badPathsString}");
 
                     Notification.Dialog("BaseAssemblyChecker",
-                        string.Format("Incorrect {0} Installation", Constants.AssemblyName), "#F0F0F0",
+                        $"Incorrect {Constants.AssemblyName} Installation", "#F0F0F0",
                         string.Format(
                             "{0} has been installed incorrectly and will not function properly. All files should be located under the GameData" +
                             Path.AltDirectorySeparatorChar + Constants.AssemblyName +
                             "folder. Do not move any files from inside that folder!\n\nIncorrect path(s):\n    •    {1}",
-                            Constants.AssemblyName, BadPathsString), "#F0F0F0");
+                            Constants.AssemblyName, badPathsString), "#F0F0F0");
                 }
                 else
                 {

@@ -41,54 +41,52 @@ namespace RSSVE
 
             int nEVENodeCount = 0;
 
-            if (!string.IsNullOrEmpty(szEVENodeToCheck))
+            if (string.IsNullOrEmpty(szEVENodeToCheck)) return nEVENodeCount;
+            //  Scan the GameDatabase for all loaded EVE configuration files.
+
+            foreach (ConfigNode EVENode in GameDatabase.Instance.GetConfigNodes(szEVENodeToCheck))
             {
-                //  Scan the GameDatabase for all loaded EVE configuration files.
+                //  Search for all available EVE body objects.
 
-                foreach (ConfigNode EVENode in GameDatabase.Instance.GetConfigNodes(szEVENodeToCheck))
+                foreach (ConfigNode EVECloudsObject in EVENode.GetNodes("OBJECT"))
                 {
-                    //  Search for all available EVE body objects.
-
-                    foreach (ConfigNode EVECloudsObject in EVENode.GetNodes("OBJECT"))
+                    if (EVENode != null && EVECloudsObject.HasValue("body"))
                     {
-                        if (EVENode != null && EVECloudsObject.HasValue("body"))
+                        // Get the raw body name from the body object.
+
+                        string szBodyName = EVECloudsObject.GetValue("body");
+
+                        //  Check if the body name exists in the celestial body database.
+
+                        if (Array.IndexOf(szBodyLoaderNames.ToArray(), szBodyName.ToLower()) < 0)
                         {
-                            // Get the raw body name from the body object.
+                            //  Print the invalid body name (for debug purposes).
 
-                            string szBodyName = EVECloudsObject.GetValue("body");
-
-                            //  Check if the body name exists in the celestial body database.
-
-                            if (Array.IndexOf(szBodyLoaderNames.ToArray(), szBodyName.ToLower()) < 0)
+                            if (Utilities.IsVerboseDebugEnabled)
                             {
-                                //  Print the invalid body name (for debug purposes).
-
-                                if (Utilities.IsVerboseDebugEnabled)
-                                {
-                                    Notification.Logger(Constants.AssemblyName, "Warning",
-                                        string.Format("Incompatible {0} body detected (name: {1})!", szEVENodeToCheck,
-                                            szBodyName));
-                                }
-
-                                //  Remove the invalid EVE configuration file from the
-                                //  GameDatabase.
-                                //
-                                //  Note: this actually removes the offending ConfigNode
-                                //  **completely** from the GameDatabase (and so from the
-                                //  actual .cfg file).
-                                //
-                                //  Will need to find a better solution for this in the
-                                //  future but for now this will do the job just fine.
-
-                                EVENode.ClearNodes();
+                                Notification.Logger(Constants.AssemblyName, "Warning",
+                                    string.Format("Incompatible {0} body detected (name: {1})!", szEVENodeToCheck,
+                                        szBodyName));
                             }
+
+                            //  Remove the invalid EVE configuration file from the
+                            //  GameDatabase.
+                            //
+                            //  Note: this actually removes the offending ConfigNode
+                            //  **completely** from the GameDatabase (and so from the
+                            //  actual .cfg file).
+                            //
+                            //  Will need to find a better solution for this in the
+                            //  future but for now this will do the job just fine.
+
+                            EVENode.ClearNodes();
                         }
                     }
-
-                    //  Increment the EVE node counter.
-
-                    nEVENodeCount++;
                 }
+
+                //  Increment the EVE node counter.
+
+                nEVENodeCount++;
             }
 
             //  Return the number of EVE configuration files found (default: zero).
@@ -123,7 +121,7 @@ namespace RSSVE
                     if (nEVENodesFound == 0)
                     {
                         Notification.Logger(Constants.AssemblyName, "Warning",
-                            string.Format("No {0} configuration files found!", szEVENodeToCheck));
+                            $"No {szEVENodeToCheck} configuration files found!");
                     }
                     else
                     {
@@ -132,8 +130,7 @@ namespace RSSVE
                         if (Utilities.IsVerboseDebugEnabled)
                         {
                             Notification.Logger(Constants.AssemblyName, null,
-                                string.Format("{0} configuration file found (count: {1})!", szEVENodeToCheck,
-                                    nEVENodesFound));
+                                $"{szEVENodeToCheck} configuration file found (count: {nEVENodesFound})!");
                         }
                     }
                 }

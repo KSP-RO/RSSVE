@@ -24,23 +24,23 @@ namespace RSSVE
     /// Startup system checker. Operates only in the Loading scene.
     /// </summary>
     [KSPAddon(KSPAddon.Startup.Instantly, true)]
-    class StartupChecker : MonoBehaviour
+    internal class StartupChecker : MonoBehaviour
     {
         /// <summary>
         /// Method to start the startup checker.
         /// </summary>
-        void Start()
+        private void Start()
         {
             try
             {
                 //  Log some basic information that might be of interest when debugging installations.
 
                 Notification.Logger(Constants.AssemblyName, null,
-                    string.Format("Assembly location: {0}", Assembly.GetExecutingAssembly().Location));
+                    $"Assembly location: {Assembly.GetExecutingAssembly().Location}");
                 Notification.Logger(Constants.AssemblyName, null,
-                    string.Format("Assembly version: {0}", Version.GetAssemblyVersion()));
+                    $"Assembly version: {Version.GetAssemblyVersion()}");
                 Notification.Logger(Constants.AssemblyName, null,
-                    string.Format("Assembly compatible: {0}", CompatibilityChecker.IsCompatible()));
+                    $"Assembly compatible: {CompatibilityChecker.IsCompatible()}");
 
                 //  The following information fields are only active if the
                 //  "Verbose Logging" option in the KSP settings is enabled.
@@ -48,33 +48,28 @@ namespace RSSVE
                 if (Utilities.IsVerboseDebugEnabled)
                 {
                     Notification.Logger(Constants.AssemblyName, null,
-                        string.Format("Using Unity player: {0}", Utilities.GetPlatformType));
+                        $"Using Unity player: {Utilities.GetPlatformType}");
                     Notification.Logger(Constants.AssemblyName, null,
-                        string.Format("Using renderer: {0}", Utilities.GetGraphicsRenderer));
+                        $"Using renderer: {Utilities.GetGraphicsRenderer}");
                     Notification.Logger(Constants.AssemblyName, null,
-                        string.Format("Using Maximum Texture Size: {0}", SystemInfo.maxTextureSize));
-                    Notification.Logger(Constants.AssemblyName, null,
-                        string.Format("Supports cubemap textures: {0}", SystemInfo.supportsRenderToCubemap));
+                        $"Using Maximum Texture Size: {SystemInfo.maxTextureSize}");
                 }
 
                 //  Check if the graphics accelerator installed supports at
                 //  least the 8K texture size required by the RSSVE assets.
 
-                if (SystemInfo.maxTextureSize < 8192 && !SystemInfo.supportsRenderToCubemap)
-                {
-                    Notification.Dialog("TextureChecker", "Unsupported Graphics Accelerator", "#F0F0F0",
-                        string.Format("{0} is not supported by the current graphics accelerator installed.",
-                            Constants.AssemblyName), "#F0F0F0");
+                if (SystemInfo.maxTextureSize >= 8192) return;
+                Notification.Dialog("TextureChecker", "Unsupported Graphics Accelerator", "#F0F0F0",
+                    $"{Constants.AssemblyName} is not supported by the current graphics accelerator installed.",
+                    "#F0F0F0");
 
-                    Notification.Logger(Constants.AssemblyName, "Error",
-                        string.Format("Unsupported minimum texture size (using {0})!", SystemInfo.maxTextureSize));
-                }
+                Notification.Logger(Constants.AssemblyName, "Error",
+                    $"Unsupported minimum texture size (using {SystemInfo.maxTextureSize})!");
             }
             catch (Exception ExceptionStack)
             {
                 Notification.Logger(Constants.AssemblyName, "Error",
-                    string.Format("StartupChecker.Start() caught an exception: {0},\n{1}\n", ExceptionStack.Message,
-                        ExceptionStack.StackTrace));
+                    $"StartupChecker.Start() caught an exception: {ExceptionStack.Message},\n{ExceptionStack.StackTrace}\n");
             }
             finally
             {

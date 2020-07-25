@@ -41,43 +41,43 @@ namespace RSSVE
             /// <summary>
             /// The minimum major version value.
             /// </summary>
-            public static readonly int MajorMin = 1;
+            public const int MajorMin = 1;
 
             /// <summary>
             /// The maximum major version value.
             /// </summary>
-            public static readonly int MajorMax = 1;
+            public const int MajorMax = 1;
 
             /// <summary>
             /// The minimum minor version value.
             /// </summary>
-            public static readonly int MinorMin = 3;
+            public const int MinorMin = 3;
 
             /// <summary>
             /// The maximum minor version value.
             /// </summary>
-            public static readonly int MinorMax = 7;
+            public const int MinorMax = 8;
 
             /// <summary>
             /// The minimum revision version value.
             /// </summary>
-            public static readonly int RevisionMin = 0;
+            public const int RevisionMin = 0;
 
             /// <summary>
             /// The maximum revision version value.
             /// </summary>
-            public static readonly int RevisionMax = 9;
+            public const int RevisionMax = 9;
         }
 
         /// <summary>
         /// The compatible Unity version.
         /// </summary>
-        public static readonly string UnityVersion = "2017.1.3p1";
+        public const string UnityVersion = "2019.2.2f1";
 
         /// <summary>
         /// The name of the assembly (used as a tag for the notification dialogs and the log file).
         /// </summary>
-        public static readonly string AssemblyName = "RSSVE";
+        public const string AssemblyName = "RSSVE";
 
         /// <summary>
         /// The (relative to the "GameData" directory) path where the assembly file resides.
@@ -120,31 +120,31 @@ namespace RSSVE
     /// <summary>
     /// Class to create user notification dialogs and log basic information to the KSP log file.
     /// </summary>
-    static class Notification
+    internal static class Notification
     {
         /// <summary>
         /// Method to create pop-up notification dialogs.
         /// </summary>
-        /// <param name = "DialogName">The internal name of the dialog window spawned.</param>
-        /// <param name = "TitleText">The title text of the dialog window (string).</param>
-        /// <param name = "TitleColor">The color of the message text.</param>
-        /// <param name = "ContentText">The message text of the dialog window (string).</param>
-        /// <param name = "ContentColor">The color of the message text.</param>
+        /// <param name = "dialogName">The internal name of the dialog window spawned.</param>
+        /// <param name = "titleText">The title text of the dialog window (string).</param>
+        /// <param name = "titleColor">The color of the message text.</param>
+        /// <param name = "contentText">The message text of the dialog window (string).</param>
+        /// <param name = "contentColor">The color of the message text.</param>
         /// <returns>
         /// Does not return a value.
         /// </returns>
-        public static void Dialog(string DialogName, string TitleText, string TitleColor, string ContentText,
-            string ContentColor)
+        public static void Dialog(string dialogName, string titleText, string titleColor, string contentText,
+            string contentColor)
         {
-            if (!string.IsNullOrEmpty(DialogName) &&
-                !string.IsNullOrEmpty(TitleText) &&
-                !string.IsNullOrEmpty(TitleColor) &&
-                !string.IsNullOrEmpty(ContentText) &&
-                !string.IsNullOrEmpty(ContentColor))
+            if (!string.IsNullOrEmpty(dialogName) &&
+                !string.IsNullOrEmpty(titleText) &&
+                !string.IsNullOrEmpty(titleColor) &&
+                !string.IsNullOrEmpty(contentText) &&
+                !string.IsNullOrEmpty(contentColor))
             {
-                PopupDialog.SpawnPopupDialog(new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), DialogName,
-                    string.Format("<color={0}>{1}</color>", TitleColor, TitleText),
-                    string.Format("<color={0}>{1}</color>", ContentColor, ContentText), "OK", false, HighLogic.UISkin,
+                PopupDialog.SpawnPopupDialog(new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), dialogName,
+                    $"<color={titleColor}>{titleText}</color>",
+                    $"<color={contentColor}>{contentText}</color>", "OK", false, HighLogic.UISkin,
                     true, string.Empty);
             }
         }
@@ -152,36 +152,34 @@ namespace RSSVE
         /// <summary>
         /// Method to print generic text in the KSP debug log.
         /// </summary>
-        /// <param name = "AssemblyTagName">Name of the assembly (to be used as a log tag) (string).</param>
-        /// <param name = "LogType">The type of the log. Can be one one of the following: null (for the basic "Log" type), Warning or Error (string).</param>
-        /// <param name = "Content">The message to be logged (string).</param>
+        /// <param name = "assemblyTagName">Name of the assembly (to be used as a log tag) (string).</param>
+        /// <param name = "logType">The type of the log. Can be one one of the following: null (for the basic "Log" type), Warning or Error (string).</param>
+        /// <param name = "content">The message to be logged (string).</param>
         /// <returns>
         /// Does not return a value.
         /// </returns>
-        public static void Logger(string AssemblyTagName, string LogType, string Content)
+        public static void Logger(string assemblyTagName, string logType, string content)
         {
-            if (!string.IsNullOrEmpty(AssemblyTagName) && !string.IsNullOrEmpty(Content))
+            if (string.IsNullOrEmpty(assemblyTagName) || string.IsNullOrEmpty(content)) return;
+            switch (logType)
             {
-                switch (LogType)
-                {
-                    case ("Warning"):
+                case ("Warning"):
 
-                        UnityEngine.Debug.LogWarning(string.Format("[{0}]: {1}", AssemblyTagName, Content));
+                    UnityEngine.Debug.LogWarning(string.Format("[{0}]: {1}", assemblyTagName, content));
 
-                        break;
+                    break;
 
-                    case ("Error"):
+                case ("Error"):
 
-                        UnityEngine.Debug.LogError(string.Format("[{0}]: {1}", AssemblyTagName, Content));
+                    UnityEngine.Debug.LogError(string.Format("[{0}]: {1}", assemblyTagName, content));
 
-                        break;
+                    break;
 
-                    default:
+                default:
 
-                        UnityEngine.Debug.Log(string.Format("[{0}]: {1}", AssemblyTagName, Content));
+                    UnityEngine.Debug.Log(string.Format("[{0}]: {1}", assemblyTagName, content));
 
-                        break;
-                }
+                    break;
             }
         }
     }
@@ -244,28 +242,28 @@ namespace RSSVE
         {
             get
             {
-                var RendererType = SystemInfo.graphicsDeviceVersion;
+                var rendererType = SystemInfo.graphicsDeviceVersion;
 
-                string RendererName;
+                string rendererName;
 
-                if (RendererType.StartsWith("Direct3D 9", StringComparison.InvariantCultureIgnoreCase))
+                if (rendererType.StartsWith("Direct3D 9", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    RendererName = "D3D9";
+                    rendererName = "D3D9";
                 }
-                else if (RendererType.StartsWith("Direct3D 11", StringComparison.InvariantCultureIgnoreCase))
+                else if (rendererType.StartsWith("Direct3D 11", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    RendererName = "D3D11";
+                    rendererName = "D3D11";
                 }
-                else if (RendererType.StartsWith("OpenGL", StringComparison.InvariantCultureIgnoreCase))
+                else if (rendererType.StartsWith("OpenGL", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    RendererName = "OpenGL";
+                    rendererName = "OpenGL";
                 }
                 else
                 {
-                    RendererName = "Unknown";
+                    rendererName = "Unknown";
                 }
 
-                return RendererName;
+                return rendererName;
             }
         }
 
@@ -280,38 +278,38 @@ namespace RSSVE
         {
             get
             {
-                var PlatformType = Application.platform;
+                var platformType = Application.platform;
 
-                string PlatformTypeName;
+                string platformTypeName;
 
-                switch (PlatformType)
+                switch (platformType)
                 {
                     case RuntimePlatform.LinuxPlayer:
 
-                        PlatformTypeName = "Linux";
+                        platformTypeName = "Linux";
 
                         break;
 
                     case RuntimePlatform.OSXPlayer:
 
-                        PlatformTypeName = "OSX";
+                        platformTypeName = "OSX";
 
                         break;
 
                     case RuntimePlatform.WindowsPlayer:
 
-                        PlatformTypeName = "Windows";
+                        platformTypeName = "Windows";
 
                         break;
 
                     default:
 
-                        PlatformTypeName = "Unknown";
+                        platformTypeName = "Unknown";
 
                         break;
                 }
 
-                return PlatformTypeName;
+                return platformTypeName;
             }
         }
 
@@ -322,10 +320,7 @@ namespace RSSVE
         /// Returns the status of the verbose debug option (boolean).
         /// </returns>
 
-        public static bool IsVerboseDebugEnabled
-        {
-            get { return GameSettings.VERBOSE_DEBUG_LOG; }
-        }
+        public static bool IsVerboseDebugEnabled => GameSettings.VERBOSE_DEBUG_LOG;
     }
 
     #endregion
@@ -345,10 +340,10 @@ namespace RSSVE
         /// </returns>
         public static string GetAssemblyVersion()
         {
-            var AssemblyVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+            var assemblyVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 
-            return string.Format("{0}.{1}.{2}.{3}", AssemblyVersion.FileMajorPart, AssemblyVersion.FileMinorPart,
-                AssemblyVersion.FileBuildPart, AssemblyVersion.FilePrivatePart);
+            return
+                $"{assemblyVersion.FileMajorPart}.{assemblyVersion.FileMinorPart}.{assemblyVersion.FileBuildPart}.{assemblyVersion.FilePrivatePart}";
         }
     }
 

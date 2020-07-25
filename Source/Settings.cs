@@ -112,17 +112,15 @@ namespace RSSVE
 
                 //  Log some basic information that might be of interest when debugging installations.
 
-                if (Utilities.IsVerboseDebugEnabled)
-                {
-                    Notification.Logger(Constants.AssemblyName, null,
-                        string.Format("{0} config found (count: {1})!", szConfigNodeName, nConfigNodeCount));
-                    Notification.Logger(Constants.AssemblyName, null,
-                        string.Format("City lights enabled: {0}", EnableCityLights));
-                    Notification.Logger(Constants.AssemblyName, null,
-                        string.Format("Cloud shadows enabled: {0}", EnableCloudShadows));
-                    Notification.Logger(Constants.AssemblyName, null,
-                        string.Format("Volumetric clouds enabled: {0}", EnableVolumetricClouds));
-                }
+                if (!Utilities.IsVerboseDebugEnabled) return;
+                Notification.Logger(Constants.AssemblyName, null,
+                    string.Format("{0} config found (count: {1})!", szConfigNodeName, nConfigNodeCount));
+                Notification.Logger(Constants.AssemblyName, null,
+                    string.Format("City lights enabled: {0}", EnableCityLights));
+                Notification.Logger(Constants.AssemblyName, null,
+                    string.Format("Cloud shadows enabled: {0}", EnableCloudShadows));
+                Notification.Logger(Constants.AssemblyName, null,
+                    string.Format("Volumetric clouds enabled: {0}", EnableVolumetricClouds));
             }
             catch (Exception ExceptionStack)
             {
