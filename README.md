@@ -59,6 +59,6 @@ You should have received a copy of the license along with this work. If not, vis
 [RSSVE:RVE-link]:             https://github.com/Pingopete
 [RSSVE:Scatterer-link]:       https://github.com/LGhassen
 [RSSVE:shield-license]:       https://img.shields.io/badge/License-CC--BY--NC--SA%204.0-green.svg
-[RSSVE:shield-version]:       https://img.shields.io/badge/KSP%20Version-1.7.3.2594-red.svg
+[RSSVE:shield-version]:       https://img.shields.io/badge/KSP%20Version-1.8.1.2694-red.svg
 [RSSVE:TCM-link]:             http://www.celestiamotherlode.net
 [RSSVE:wiki-link]:            https://github.com/KSP-RO/RSSVE/wiki
