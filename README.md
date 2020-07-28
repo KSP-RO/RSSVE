@@ -29,7 +29,7 @@ Check the **![RSSVE wiki][RSSVE:wiki-link]** about the requirements and the inst
   * **Scatterer** by **[Blackrack][RSSVE:Scatterer-link]**
 
 ## Contributors
-
+  * **PhineasFreak** 
   * **Damien**
   * **[Francois W. Nel][RSSVE:contributor-francois]**
   * **[Lukas "Theysen" Theisen][RSSVE:contributor-theysen]**
