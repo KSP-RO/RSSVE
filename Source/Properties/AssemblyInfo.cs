@@ -1,7 +1,7 @@
 //  ================================================================================
 //  Real Solar System Visual Enhancements for Kerbal Space Program.
 //
-//  Copyright © 2016 - 2019, Alexander "Phineas Freak" Kampolis.
+//  Copyright © 2016 - 2021, Alexander "Phineas Freak" Kampolis, KSP-RO team.
 //
 //  This file is part of Real Solar System Visual Enhancements.
 //
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyCompany("Phineas Freak, KSP-RO")]
 [assembly: AssemblyConfiguration("Release")]
-[assembly: AssemblyCopyright("Copyright © 2016 - 2020 Phineas Freak, KSP-RO")]
+[assembly: AssemblyCopyright("Copyright © 2016 - 2021 Phineas Freak, KSP-RO")]
 [assembly: AssemblyDescription("Real Solar System Visual Enhancements for KSP")]
 [assembly: AssemblyProduct("RSSVE")]
 [assembly: AssemblyTitle("RSSVE")]
