@@ -51,22 +51,22 @@ namespace RSSVE
             /// <summary>
             /// The minimum minor version value.
             /// </summary>
-            public const int MinorMin = 3;
+            public const int MinorMin = 9;
 
             /// <summary>
             /// The maximum minor version value.
             /// </summary>
-            public const int MinorMax = 8;
+            public const int MinorMax = 11;
 
             /// <summary>
             /// The minimum revision version value.
             /// </summary>
-            public const int RevisionMin = 0;
+            public const int RevisionMin = 1;
 
             /// <summary>
             /// The maximum revision version value.
             /// </summary>
-            public const int RevisionMax = 9;
+            public const int RevisionMax = 1;
         }
 
         /// <summary>
