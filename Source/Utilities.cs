@@ -66,7 +66,7 @@ namespace RSSVE
             /// <summary>
             /// The maximum revision version value.
             /// </summary>
-            public const int RevisionMax = 1;
+            public const int RevisionMax = 2;
         }
 
         /// <summary>
