@@ -59,8 +59,7 @@ namespace RSSVE
             catch (Exception ExceptionStack)
             {
                 Notification.Logger(Constants.AssemblyName, "Error",
-                    string.Format("InstallChecker.OnDestroy() caught an exception: {0},\n{1}\n", ExceptionStack.Message,
-                        ExceptionStack.StackTrace));
+                    $"InstallChecker.OnDestroy() caught an exception: {ExceptionStack.Message},\n{ExceptionStack.StackTrace}\n");
             }
             finally
             {
@@ -193,8 +192,7 @@ namespace RSSVE
             catch (Exception ExceptionStack)
             {
                 Notification.Logger(Constants.AssemblyName, "Error",
-                    string.Format("InstallChecker.Start() caught an exception: {0},\n{1}\n", ExceptionStack.Message,
-                        ExceptionStack.StackTrace));
+                    $"InstallChecker.Start() caught an exception: {ExceptionStack.Message},\n{ExceptionStack.StackTrace}\n");
             }
             finally
             {

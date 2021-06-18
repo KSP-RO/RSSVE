@@ -59,28 +59,19 @@ namespace RSSVE
         /// Method to set the localized title of the Difficulty Options entry.
         /// </summary>
 
-        public override string DisplaySection
-        {
-            get { return "RSS Visual Enhancements"; }
-        }
+        public override string DisplaySection => "RSS Visual Enhancements";
 
         /// <summary>
         /// Method to set the applicable GameModes for the mod Difficulty Options.
         /// </summary>
 
-        public override GameParameters.GameMode GameMode
-        {
-            get { return GameParameters.GameMode.ANY; }
-        }
+        public override GameParameters.GameMode GameMode => GameParameters.GameMode.ANY;
 
         /// <summary>
         /// Method to set the presets of the mod Difficulty Options.
         /// </summary>
 
-        public override bool HasPresets
-        {
-            get { return false; }
-        }
+        public override bool HasPresets => false;
 
         /// <summary>
         /// Method to load the configuration options.
@@ -114,19 +105,18 @@ namespace RSSVE
 
                 if (!Utilities.IsVerboseDebugEnabled) return;
                 Notification.Logger(Constants.AssemblyName, null,
-                    string.Format("{0} config found (count: {1})!", szConfigNodeName, nConfigNodeCount));
+                    $"{szConfigNodeName} config found (count: {nConfigNodeCount})!");
                 Notification.Logger(Constants.AssemblyName, null,
-                    string.Format("City lights enabled: {0}", EnableCityLights));
+                    $"City lights enabled: {EnableCityLights}");
                 Notification.Logger(Constants.AssemblyName, null,
-                    string.Format("Cloud shadows enabled: {0}", EnableCloudShadows));
+                    $"Cloud shadows enabled: {EnableCloudShadows}");
                 Notification.Logger(Constants.AssemblyName, null,
-                    string.Format("Volumetric clouds enabled: {0}", EnableVolumetricClouds));
+                    $"Volumetric clouds enabled: {EnableVolumetricClouds}");
             }
             catch (Exception ExceptionStack)
             {
                 Notification.Logger(Constants.AssemblyName, "Error",
-                    string.Format("Settings.OnLoad() caught an exception: {0},\n{1}\n", ExceptionStack.Message,
-                        ExceptionStack.StackTrace));
+                    $"Settings.OnLoad() caught an exception: {ExceptionStack.Message},\n{ExceptionStack.StackTrace}\n");
             }
         }
 
@@ -184,8 +174,7 @@ namespace RSSVE
             catch (Exception ExceptionStack)
             {
                 Notification.Logger(Constants.AssemblyName, "Error",
-                    string.Format("Settings.OnSave() caught an exception: {0},\n{1}\n", ExceptionStack.Message,
-                        ExceptionStack.StackTrace));
+                    $"Settings.OnSave() caught an exception: {ExceptionStack.Message},\n{ExceptionStack.StackTrace}\n");
             }
         }
 
@@ -193,27 +182,18 @@ namespace RSSVE
         /// Method to set the internal section name of the Difficulty Options entry.
         /// </summary>
 
-        public override string Section
-        {
-            get { return "RSSVE Settings"; }
-        }
+        public override string Section => "RSSVE Settings";
 
         /// <summary>
         /// Method to set the position of the Difficulty Options entry.
         /// </summary>
 
-        public override int SectionOrder
-        {
-            get { return 1; }
-        }
+        public override int SectionOrder => 1;
 
         /// <summary>
         /// Method to set the title of the Difficulty Options entry.
         /// </summary>
 
-        public override string Title
-        {
-            get { return "Global Settings"; }
-        }
+        public override string Title => "Global Settings";
     }
 }
