@@ -62,4 +62,4 @@ You should have received a copy of the license along with this work. If not, vis
 [RSSVE:shield-version]:       https://img.shields.io/badge/KSP%20Version-1.8.1.2694-red.svg
 [RSSVE:TCM-link]:             http://www.celestiamotherlode.net
 [RSSVE:wiki-link]:            https://github.com/KSP-RO/RSSVE/wiki
-[RSSVE:link-redux]:           https://github.com/LGhassen/
+[RSSVE:EVE-link-redux]:           https://github.com/LGhassen/
