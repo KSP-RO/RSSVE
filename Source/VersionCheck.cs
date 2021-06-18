@@ -83,7 +83,7 @@ namespace RSSVE
                 .Where(t => t.Name.Equals("CompatibilityChecker"))
                 .Select(t => t.GetField("_version", BindingFlags.Static | BindingFlags.NonPublic))
                 .Where(f => f != null)
-                .Where(f => f.FieldType.Equals(typeof(int)))
+                .Where(f => f.FieldType == typeof(int))
                 .ToArray();
 
             //  Let the latest version of the checker execute.
@@ -104,9 +104,9 @@ namespace RSSVE
             //  A mod is incompatible if its compatibility checker has an IsCompatible method which returns false.
 
             var incompatible = fields
-                .Select(f => f.DeclaringType.GetMethod("IsCompatible", Type.EmptyTypes))
+                .Select(f => f.DeclaringType?.GetMethod("IsCompatible", Type.EmptyTypes))
                 .Where(m => m.IsStatic)
-                .Where(m => m.ReturnType.Equals(typeof(bool)))
+                .Where(m => m.ReturnType == typeof(bool))
                 .Where(m =>
                 {
                     try
@@ -117,23 +117,22 @@ namespace RSSVE
                     {
                         //  If a mod throws an exception from IsCompatible, it's not compatible.
 
-                        Debug.LogWarning(string.Format(
-                            "[CompatibilityChecker]: Exception while invoking IsCompatible() from '{0}':\n\n{1}",
-                            m.DeclaringType.Assembly.GetName().Name, e));
+                        Debug.LogWarning(
+                            $"[CompatibilityChecker]: Exception while invoking IsCompatible() from '{m.DeclaringType?.Assembly.GetName().Name}':\n\n{e}");
 
                         return true;
                     }
                 })
-                .Select(m => m.DeclaringType.Assembly.GetName().Name)
+                .Select(m => m.DeclaringType?.Assembly.GetName().Name)
                 .ToArray();
 
             //  A mod is incompatible with Unity if its compatibility checker has an IsUnityCompatible method which returns false.
 
             var incompatibleUnity = fields
-                .Select(f => f.DeclaringType.GetMethod("IsUnityCompatible", Type.EmptyTypes))
+                .Select(f => f.DeclaringType?.GetMethod("IsUnityCompatible", Type.EmptyTypes))
                 .Where(m => m != null) //  Mods without IsUnityCompatible () are assumed to be compatible.
                 .Where(m => m.IsStatic)
-                .Where(m => m.ReturnType.Equals(typeof(bool)))
+                .Where(m => m.ReturnType == typeof(bool))
                 .Where(m =>
                 {
                     try
@@ -144,14 +143,13 @@ namespace RSSVE
                     {
                         //  If a mod throws an exception from IsUnityCompatible, it's not compatible.
 
-                        Debug.LogWarning(string.Format(
-                            "[CompatibilityChecker]: Exception while invoking IsUnityCompatible() from '{0}':\n\n{1}",
-                            m.DeclaringType.Assembly.GetName().Name, e));
+                        Debug.LogWarning(
+                            $"[CompatibilityChecker]: Exception while invoking IsUnityCompatible() from '{m.DeclaringType?.Assembly.GetName().Name}':\n\n{e}");
 
                         return true;
                     }
                 })
-                .Select(m => m.DeclaringType.Assembly.GetName().Name)
+                .Select(m => m.DeclaringType?.Assembly.GetName().Name)
                 .ToArray();
 
             Array.Sort(incompatible);
@@ -169,8 +167,8 @@ namespace RSSVE
                     Debug.LogWarning("[CompatibilityChecker]: Incompatible mods detected: " +
                                      string.Join(", ", incompatible));
 
-                    message += string.Format("\n\nThese mods are incompatible with KSP {0}.{1}.{2}:\n\n",
-                        Versioning.version_major, Versioning.version_minor, Versioning.Revision);
+                    message +=
+                        $"\n\nThese mods are incompatible with KSP {Versioning.version_major}.{Versioning.version_minor}.{Versioning.Revision}:\n\n";
                     message += string.Join("\n", incompatible);
                 }
 
@@ -179,8 +177,7 @@ namespace RSSVE
                     Debug.LogWarning("[CompatibilityChecker]: Incompatible mods (Unity) detected: " +
                                      string.Join(", ", incompatibleUnity));
 
-                    message += string.Format("\n\nThese mods are incompatible with Unity {0}:\n\n",
-                        Application.unityVersion);
+                    message += $"\n\nThese mods are incompatible with Unity {Application.unityVersion}:\n\n";
                     message += string.Join("\n", incompatibleUnity);
                 }
             }

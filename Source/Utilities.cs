@@ -56,7 +56,7 @@ namespace RSSVE
             /// <summary>
             /// The maximum minor version value.
             /// </summary>
-            public const int MinorMax = 11;
+            public const int MinorMax = 12;
 
             /// <summary>
             /// The minimum revision version value.
@@ -66,7 +66,7 @@ namespace RSSVE
             /// <summary>
             /// The maximum revision version value.
             /// </summary>
-            public const int RevisionMax = 1;
+            public const int RevisionMax = 99;
         }
 
         /// <summary>
@@ -165,19 +165,19 @@ namespace RSSVE
             {
                 case ("Warning"):
 
-                    UnityEngine.Debug.LogWarning(string.Format("[{0}]: {1}", assemblyTagName, content));
+                    UnityEngine.Debug.LogWarning($"[{assemblyTagName}]: {content}");
 
                     break;
 
                 case ("Error"):
 
-                    UnityEngine.Debug.LogError(string.Format("[{0}]: {1}", assemblyTagName, content));
+                    UnityEngine.Debug.LogError($"[{assemblyTagName}]: {content}");
 
                     break;
 
                 default:
 
-                    UnityEngine.Debug.Log(string.Format("[{0}]: {1}", assemblyTagName, content));
+                    UnityEngine.Debug.Log($"[{assemblyTagName}]: {content}");
 
                     break;
             }
