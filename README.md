@@ -22,7 +22,7 @@ Check the **![RSSVE wiki][RSSVE:wiki-link]** about the requirements and the inst
 
 ### Programming:
 
-  * **Environmental Visual Enhancements (EVE)** by **[rbray89][RSSVE:EVE-link-rbray]** and **[WazWaz][RSSVE:EVE-link-waz]**
+  * **Environmental Visual Enhancements Redux (EVE Redux)** by **[rbray89][RSSVE:EVE-link-rbray]**, **[WazWaz][RSSVE:EVE-link-waz]** and **[Blackrack][RSSVE:EVE-link-redux]**
   * **Module Manager** by **[ialdabaoth][RSSVE:MM-link-ialdabaoth]** and **[sarbian][RSSVE:MM-link-sarbian]**
   * **Real Solar System (RSS)** by **[NathanKell][RSSVE:RSS-link]**
   * **Real Visual Enhancements (RVE)** by **[Pingopete][RSSVE:RVE-link]**
@@ -62,3 +62,4 @@ You should have received a copy of the license along with this work. If not, vis
 [RSSVE:shield-version]:       https://img.shields.io/badge/KSP%20Version-1.8.1.2694-red.svg
 [RSSVE:TCM-link]:             http://www.celestiamotherlode.net
 [RSSVE:wiki-link]:            https://github.com/KSP-RO/RSSVE/wiki
+[RSSVE:link-redux]:           https://github.com/LGhassen/
