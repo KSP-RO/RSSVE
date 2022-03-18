@@ -13,11 +13,11 @@
     {
         "MAJOR" : 2,
         "MINOR" : 1,
-        "PATCH" : 4
+        "PATCH" : 5
     },
     "KSP_VERSION_MIN" :
     {
         "MAJOR" : 1,
-        "MINOR" : 10
+        "MINOR" : 12
     }
 }

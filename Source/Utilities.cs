@@ -72,7 +72,7 @@ namespace RSSVE
         /// <summary>
         /// The compatible Unity version.
         /// </summary>
-        public const string UnityVersion = "2019.2.2f1";
+        public const string UnityVersion = "2019.4.18f1";
 
         /// <summary>
         /// The name of the assembly (used as a tag for the notification dialogs and the log file).
