@@ -134,14 +134,14 @@ namespace RSSVE
 
                 //  Assemble the path where the configuration file resides.
 
-                string RSSVEConfigFilename = Constants.ConfigurationFilePath + Path.AltDirectorySeparatorChar +
+                string RSSVEConfigFilename = KSPUtil.ApplicationRootPath + Constants.ConfigurationFilePath + Path.AltDirectorySeparatorChar +
                                              Constants.ConfigurationFileName;
 
                 //  Create a new configuration file directory.
 
-                if (!Directory.Exists(Constants.ConfigurationFilePath))
+                if (!Directory.Exists(KSPUtil.ApplicationRootPath + Constants.ConfigurationFilePath))
                 {
-                    Directory.CreateDirectory(Constants.ConfigurationFilePath);
+                    Directory.CreateDirectory(KSPUtil.ApplicationRootPath + Constants.ConfigurationFilePath);
                 }
 
                 //  Create a new empty configuration file.
