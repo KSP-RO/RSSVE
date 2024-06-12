@@ -40,7 +40,7 @@ namespace RSSVE
         /// </summary>
         [GameParameters.CustomParameterUI("Enable Cloud Shadows",
             toolTip = "Enables or disables the cloud shadow effects")]
-        public bool EnableCloudShadows = true;
+        public bool EnableCloudShadows = false;
 
         /// <summary>
         /// Parameter to set whether the EVE volumetric clouds should be visible.
