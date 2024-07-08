@@ -23,6 +23,7 @@ _NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the
   * Saturn texture (used for exporting some basic cloud textures) by **Runar Thorvaldsen**, **Dr. Fridger Schremmp** and **Grant Hutchinson** (redistributed by **[The Celestia Motherlode][RSSVE:TCM-link]**)
   * Saturn ring texture by **[CICLOPS][RSSVE:CICLOPS-link]** (Cassini Imaging Central Laboratory For Operations - image preparation by **Daren Wilson** and **Carolyn Porco**)
   * Uranus and Neptune textures (used for exporting some basic cloud textures) by **[JHT's Planetary Pixel Emporium][RSSVE:PPE-link]**
+  * Jupiter and Saturn cloud textures from EVO: https://forum.kerbalspaceprogram.com/topic/200373-evo-extreme-visual-overhaul-for-rss-beta-03-mostly-stable/
 
 ### Programming:
 
@@ -31,6 +32,8 @@ _NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the
   * **Real Solar System (RSS)** by **[NathanKell][RSSVE:RSS-link]**
   * **Real Visual Enhancements (RVE)** by **[Pingopete][RSSVE:RVE-link]**
   * **Scatterer** by **[Blackrack][RSSVE:Scatterer-link]**
+
+  * Scatterer and EVE configs for Jupiter and Saturn from EVO: https://forum.kerbalspaceprogram.com/topic/200373-evo-extreme-visual-overhaul-for-rss-beta-03-mostly-stable/
 
 ## Contributors
   * **PhineasFreak** 
