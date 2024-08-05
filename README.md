@@ -1,17 +1,13 @@
-# RSSVE
+# RSSVE-Enhanced
 
-![][RSSVE:shield-version]
-![][RSSVE:shield-license]
 
-**Real Solar System Visual Enhancements (RSSVE)** is an add-on for the **Environmental Visual Enhancements (EVE)**, providing clouds and other visual improvements for the **Real Solar System (RSS)** modification.
+**Real Solar System Visual Enhancements - Enhanced (RSSVE-Enhanced)** is my fork of the RSSVE visual pack for KSP RealSolarSystem. This fork aims to add new improvements and fixes bugs for gas giants.
 
 ## Installation
 
-_NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the specific versions specified below, even if a new version is available, as these are known to work properly together._
-
-* [EVE Redux 1.11.2.1](https://github.com/LGhassen/EnvironmentalVisualEnhancements/releases/tag/1.11.2.1), from release (Note EVE's instructions make mention of configs, just ignore those instructions and follow these)
-* [RSSVE 1.10 / 2.1.3](https://github.com/KSP-RO/RSSVE/releases/tag/2.1.3), from release. You'll need to choose between high res (HR) and low res (LR) when selecting a `.zip` to download.
-* [Scatterer v0.0770](https://github.com/LGhassen/Scatterer/releases/tag/0.0770), from release.
+* [EVE Redux](https://github.com/LGhassen/EnvironmentalVisualEnhancements/releases/), from release (Note EVE's instructions make mention of configs, just ignore those instructions and follow these)
+* [Scatterer](https://github.com/LGhassen/Scatterer/releases/), from release.
+* If you are already using RSSVE, just delete that folder from your GameData and replace it with my RSSVE folder.
 
 ## Credits
 
@@ -39,12 +35,15 @@ _NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the
   * **[Francois W. Nel][RSSVE:contributor-francois]**
   * **[Lukas "Theysen" Theisen][RSSVE:contributor-theysen]**
   * **Poodmund**
+  * **Me, haven't done much yet though**
+
 
 ## License
 
-RSSVE is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC-BY-NC-SA 4.0)** license.
+RSSVE-Enhanced, just like normal RSSVE, is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC-BY-NC-SA 4.0)** license.
 
 You should have received a copy of the license along with this work. If not, visit the **[official Creative Commons web page][RSSVE:cc-license-link]**.
+Link to RSSVE: https://github.com/KSP-RO/RSSVE
 
 **Note that the above license does not cover mod packs. Redistributing this work via a mod pack is not allowed.**
 
