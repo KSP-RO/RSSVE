@@ -23,6 +23,7 @@ _NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the
   * Saturn texture (used for exporting some basic cloud textures) by **Runar Thorvaldsen**, **Dr. Fridger Schremmp** and **Grant Hutchinson** (redistributed by **[The Celestia Motherlode][RSSVE:TCM-link]**)
   * Saturn ring texture by **[CICLOPS][RSSVE:CICLOPS-link]** (Cassini Imaging Central Laboratory For Operations - image preparation by **Daren Wilson** and **Carolyn Porco**)
   * Uranus and Neptune textures (used for exporting some basic cloud textures) by **[JHT's Planetary Pixel Emporium][RSSVE:PPE-link]**
+  * Cloud textures and configs for gas giants from EVO: https://github.com/Its-Just-Luci/EVO
 
 ### Programming:
 
