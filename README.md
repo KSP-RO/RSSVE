@@ -40,7 +40,6 @@ _NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the
   * **[Lukas "Theysen" Theisen][RSSVE:contributor-theysen]**
   * **Poodmund**
 
-
 ## License
 
 RSSVE is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC-BY-NC-SA 4.0)** license.
