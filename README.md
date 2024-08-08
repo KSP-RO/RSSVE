@@ -9,9 +9,9 @@
 
 _NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the specific versions specified below, even if a new version is available, as these are known to work properly together._
 
-* [EVE Redux 1.11.2.1](https://github.com/LGhassen/EnvironmentalVisualEnhancements/releases/tag/1.11.2.1), from release (Note EVE's instructions make mention of configs, just ignore those instructions and follow these)
-* [RSSVE 1.10 / 2.1.3](https://github.com/KSP-RO/RSSVE/releases/tag/2.1.3), from release. You'll need to choose between high res (HR) and low res (LR) when selecting a `.zip` to download.
-* [Scatterer v0.0770](https://github.com/LGhassen/Scatterer/releases/tag/0.0770), from release.
+* [EVE Redux](https://github.com/LGhassen/EnvironmentalVisualEnhancements/releases), from release (Note EVE's instructions make mention of configs, just ignore those instructions and follow these)
+* [RSSVE](https://github.com/KSP-RO/RSSVE/releases), from release. You'll need to choose between high res (HR) and low res (LR) when selecting a `.zip` to download.
+* [Scatterer](https://github.com/LGhassen/Scatterer/releases), from release.
 
 ## Credits
 
