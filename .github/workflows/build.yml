@@ -1,0 +1,73 @@
+name: Build Release Packages
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Stage packages
+        run: |
+          mkdir -p staging_hr/RSSVE staging_lr/RSSVE
+
+          # Copy everything except MainTextures (handled separately) and dev artifacts
+          rsync -a \
+            --exclude='Textures/MainTextures' \
+            RSSVE/ staging_hr/RSSVE/
+          rsync -a \
+            --exclude='Textures/MainTextures' \
+            RSSVE/ staging_lr/RSSVE/
+
+          # Copy shared MainTextures subdirs (no _HR/_LR suffix)
+          mkdir -p staging_hr/RSSVE/Textures/MainTextures
+          mkdir -p staging_lr/RSSVE/Textures/MainTextures
+
+          for dir in RSSVE/Textures/MainTextures/*/; do
+            name=$(basename "$dir")
+            if [[ "$name" != *_HR && "$name" != *_LR ]]; then
+              cp -r "$dir" "staging_hr/RSSVE/Textures/MainTextures/$name"
+              cp -r "$dir" "staging_lr/RSSVE/Textures/MainTextures/$name"
+            fi
+          done
+
+          # HR package: use _HR folders; fall back to _LR for folders with no _HR counterpart
+          for dir in RSSVE/Textures/MainTextures/*_HR/; do
+            [ -d "$dir" ] || continue
+            base="${dir%_HR/}"
+            name=$(basename "$base")
+            cp -r "$dir" "staging_hr/RSSVE/Textures/MainTextures/$name"
+          done
+          for dir in RSSVE/Textures/MainTextures/*_LR/; do
+            [ -d "$dir" ] || continue
+            base="${dir%_LR/}"
+            name=$(basename "$base")
+            if [ ! -d "${base}_HR" ]; then
+              cp -r "$dir" "staging_hr/RSSVE/Textures/MainTextures/$name"
+            fi
+          done
+
+          # LR package: use _LR folders only
+          for dir in RSSVE/Textures/MainTextures/*_LR/; do
+            [ -d "$dir" ] || continue
+            base="${dir%_LR/}"
+            name=$(basename "$base")
+            cp -r "$dir" "staging_lr/RSSVE/Textures/MainTextures/$name"
+          done
+
+      - name: Upload HR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RSSVE_HR
+          path: staging_hr/
+
+      - name: Upload LR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RSSVE_LR
+          path: staging_lr/
