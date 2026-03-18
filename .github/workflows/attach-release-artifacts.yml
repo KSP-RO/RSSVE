@@ -1,0 +1,48 @@
+name: Attach Release Artifacts
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  attach:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download HR artifact
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: build.yml
+          commit: ${{ github.sha }}
+          name: RSSVE_HR
+          path: staging_hr/
+
+      - name: Download LR artifact
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: build.yml
+          commit: ${{ github.sha }}
+          name: RSSVE_LR
+          path: staging_lr/
+
+      - name: Update version file
+        uses: KSP-RO/BuildTools/update-version-file@master
+        with:
+          tag: ${{ github.event.release.tag_name }}
+          path: ${{ github.workspace }}/staging_hr/RSSVE/RSSVE.version
+
+      - name: Copy updated version file to LR
+        run: cp staging_hr/RSSVE/RSSVE.version staging_lr/RSSVE/RSSVE.version
+
+      - name: Create zip archives
+        run: |
+          (cd staging_hr && zip -r ../RSSVE_HR.zip RSSVE/)
+          (cd staging_lr && zip -r ../RSSVE_LR.zip RSSVE/)
+
+      - name: Upload to release
+        run: gh release upload ${{ github.event.release.tag_name }} RSSVE_HR.zip RSSVE_LR.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
