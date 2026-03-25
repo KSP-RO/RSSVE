@@ -10,29 +10,33 @@
 
 ====================================================================================================
 
-Real Solar System Visual Enhancements (RSSVE) is an add-on for the Environmental Visual Enhancements (EVE), providing clouds and other visual improvements for the Real Solar System (RSS) modification.
+Real Solar System Visual Enhancements (RSSVE) is an add-on for the Real Solar System (RSS) mod, providing clouds and various other visual improvements.
 
 Installation:
 
-    1. Download the latest version of Module Manager for your respective KSP version.
-    2. Download the latest version of Environmental Visual Enhancements (EVE) for your respective KSP version. Note that RSSVE requires only the "AnyCPU-EVE-Release" package.
-    3. Download the latest version of Scatterer for your respective KSP version.
-    4. Install the mods according to the instructions provided by each one.
-    5. Download the latest version of Real Solar System Visual Enhancements (RSSVE).
-    6. Extract the contents of the RSSVE .zip file and move the resulting "RSSVE" folder inside the GameData folder. The final basic file and folder structure should look like this:
+    Starting with a working RealSolarSystem installation:
 
-        • GameData/
-        •   ModuleManager.X.X.XX.X.dll
-        •   EnvironmentalVisualEnhancements
-        •   Kopernicus
-        •   ModularFlightIntegrator
-        •   RealSolarSystem
-        •   RSS-Textures
-        •   RSSVE
-        •   Scatterer
-        •   Squad
+    1. Download the latest version of Environmental Visual Enhancements (EVE) for your respective KSP version. Note that RSSVE requires only the "AnyCPU-EVE-Release" package.
+    2. Download the latest version of Scatterer for your respective KSP version.
+    3. Install the mods according to the instructions provided by each one.
+    4. Download the latest version of Real Solar System Visual Enhancements (RSSVE).
+    5. Extract the contents of the RSSVE .zip file and move the resulting "RSSVE" folder inside the GameData folder. The final basic file and folder structure should look like this:
 
-    7. Launch KSP and enjoy the new visual effects!
+       Kerbal Space program
+       └──── GameData
+            ├──── ModuleManager.X.X.XX.X.dll
+            ├──── 000_Harmony
+            ├──── EnvironmentalVisualEnhancements
+            ├──── Kopernicus
+            ├──── ModularFlightIntegrator
+            ├──── RealSolarSystem
+            ├──── RSS-Textures
+            ├──── RSSVE
+            ├──── Scatterer
+            ├──── StockScattererConfigs
+            └──── Squad
+
+    6. Launch KSP and enjoy the new visual effects!
 
 For more information check the RSSVE wiki: https://github.com/PhineasFreak/RSSVE/wiki
 
@@ -40,30 +44,28 @@ Credits:
 
     Textures:
 
-    • Cloud and Earth city detail textures by Real Visual Enhancements (RVE)
-    • Venus cloud texture map by Snowfall-The-Cat
-    • Earth low resolution cloud texture map by NASA Visible Earth
-    • Earth high resolution cloud texture map by NASA Visible Earth (image preparation by Harald Schmidt - redistributed by The Celestia Motherlode)
-    • Earth city lights texture map by NASA Earth Observatory
-    • Jupiter texture map (used for exporting some basic cloud textures) by Björn Jónsson
+    • Venus cloud texture map by Astra-Planetshine (DeviantArt)
+    • Earth cloud and city lights textures by NASA Visible Earth (image preparation by Harald Schmidt - redistributed by The Celestia Motherlode)
+    • Earth and Venus cloud detail textures; Earth city detail textures by Real Visual Enhancements (RVE).
     • Saturn texture map (used for exporting some basic cloud textures) by Runar Thorvaldsen, Dr. Fridger Schremmp and Grant Hutchinson (redistributed by The Celestia Motherlode)
     • Saturn ring texture by CICLOPS (Cassini Imaging Central Laboratory For Operations - image preparation by Daren Wilson and Carolyn Porco)
     • Uranus and Neptune texture maps (used for exporting some basic cloud textures) by JHT's Planetary Pixel Emporium
 
     Programming:
 
-    • Environmental Visual Enhancements (EVE) by rbray89 and WazWaz
-    • Module Manager by ialdabaoth and sarbian
-    • Real Solar System (RSS) by NathanKell
+    • Environmental Visual Enhancements (EVE) by rbray89, WazWaz, R-T-B and Blackrack
+    • Real Solar System (RSS) by NathanKell and KSP-RO contributors
     • Real Visual Enhancements (RVE) by Pingopete
     • Scatterer by Blackrack
 
 Contributors:
 
+    • Capkirk123
     • Damien
     • Francois W. Nel
     • Lukas "Theysen" Theisen
     • Poodmund
+    • Siimav
 
 License:
 
