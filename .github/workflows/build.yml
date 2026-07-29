@@ -14,6 +14,8 @@ jobs:
 
       - name: Stage packages
         run: |
+          set -euo pipefail
+
           mkdir -p staging_hr/RSSVE staging_lr/RSSVE
 
           # Copy everything except MainTextures (handled separately) and dev artifacts
@@ -24,40 +26,54 @@ jobs:
             --exclude='Textures/MainTextures' \
             RSSVE/ staging_lr/RSSVE/
 
-          # Copy shared MainTextures subdirs (no _HR/_LR suffix)
           mkdir -p staging_hr/RSSVE/Textures/MainTextures
           mkdir -p staging_lr/RSSVE/Textures/MainTextures
 
-          for dir in RSSVE/Textures/MainTextures/*/; do
-            name=$(basename "$dir")
-            if [[ "$name" != *_HR && "$name" != *_LR ]]; then
-              cp -r "$dir" "staging_hr/RSSVE/Textures/MainTextures/$name"
-              cp -r "$dir" "staging_lr/RSSVE/Textures/MainTextures/$name"
-            fi
-          done
+          src=RSSVE/Textures/MainTextures
 
-          # HR package: use _HR folders; fall back to _LR for folders with no _HR counterpart
-          for dir in RSSVE/Textures/MainTextures/*_HR/; do
-            [ -d "$dir" ] || continue
-            base="${dir%_HR/}"
-            name=$(basename "$base")
-            cp -r "$dir" "staging_hr/RSSVE/Textures/MainTextures/$name"
-          done
-          for dir in RSSVE/Textures/MainTextures/*_LR/; do
-            [ -d "$dir" ] || continue
-            base="${dir%_LR/}"
-            name=$(basename "$base")
-            if [ ! -d "${base}_HR" ]; then
-              cp -r "$dir" "staging_hr/RSSVE/Textures/MainTextures/$name"
-            fi
-          done
+          # Texture set names, with any _HR/_LR suffix stripped
+          names=$(for dir in "$src"/*/; do
+                    name=$(basename "$dir")
+                    name="${name%_HR}"
+                    echo "${name%_LR}"
+                  done | sort -u)
 
-          # LR package: use _LR folders only
-          for dir in RSSVE/Textures/MainTextures/*_LR/; do
-            [ -d "$dir" ] || continue
-            base="${dir%_LR/}"
-            name=$(basename "$base")
-            cp -r "$dir" "staging_lr/RSSVE/Textures/MainTextures/$name"
+          # Each package prefers its own resolution, falls back to the other one,
+          # then to an unsuffixed (shared) folder
+          while IFS= read -r name; do
+            for pkg in hr lr; do
+              if [ "$pkg" = hr ]; then
+                preferred="${name}_HR"; fallback="${name}_LR"
+              else
+                preferred="${name}_LR"; fallback="${name}_HR"
+              fi
+
+              if [ -d "$src/$preferred" ]; then
+                chosen="$preferred"
+              elif [ -d "$src/$fallback" ]; then
+                chosen="$fallback"
+              elif [ -d "$src/$name" ]; then
+                chosen="$name"
+              else
+                echo "::error::No texture folder found for $name"
+                exit 1
+              fi
+
+              cp -r "$src/$chosen" "staging_$pkg/RSSVE/Textures/MainTextures/$name"
+              echo "${pkg^^}: $name <- $chosen"
+            done
+          done <<< "$names"
+
+      - name: Verify staged textures
+        run: |
+          set -euo pipefail
+          for pkg in hr lr; do
+            echo "== ${pkg^^} =="
+            for dir in staging_$pkg/RSSVE/Textures/MainTextures/*/; do
+              count=$(find "$dir" -type f | wc -l)
+              echo "  $(basename "$dir"): $count file(s)"
+              [ "$count" -gt 0 ] || { echo "::error::$dir is empty"; exit 1; }
+            done
           done
 
       - name: Upload HR artifact
