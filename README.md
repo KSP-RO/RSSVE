@@ -7,23 +7,29 @@
 
 ## Installation
 
-_NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the specific versions specified below, even if a new version is available, as these are known to work properly together._
+_NOTE: It is very important to install the specific versions of the required dependencies specified below, even if a new version is available, as these are known to work properly together:_
 
-* **[EVE Redux](https://github.com/LGhassen/EnvironmentalVisualEnhancements/releases)**, from release (Note EVE's instructions make mention of configs, just ignore those instructions and follow these)
-* **[RSSVE](https://github.com/KSP-RO/RSSVE/releases)**, from release. You'll need to choose between **high resolution (HR)** and **low resolution (LR)** when selecting a `.zip` to download.
-* **[Scatterer](https://github.com/LGhassen/Scatterer/releases)**, from release
+* **[EVE Redux v1.11.7.2](https://github.com/LGhassen/EnvironmentalVisualEnhancements/releases)**, from release
+* **[Scatterer v0.0878](https://github.com/LGhassen/Scatterer/releases)**, from release
+
+Then download the latest version of **[RSSVE](https://github.com/KSP-RO/RSSVE/releases)**, from release. You'll need to choose between **high resolution (HR)** and **low resolution (LR)** when selecting a `.zip` file to download.
+
+Other suggested mods that work well with RSSVE are:
+
+* **[Deferred](https://github.com/LGhassen/Deferred)** for improved and more natural lighting
+* **[Distant Object Enhancement](https://github.com/net-lisias-ksp/DistantObject)** for making planets and satellites visible in the night sky
+* **[Texture Replacer](https://github.com/ducakar/TextureReplacer)** for replacing textures, like the skybox (**[Pood's Deep Star Map Skybox](https://spacedock.info/mod/925/Pood%27s%20Deep%20Star%20Map%20Skybox)** is highly recommended)
 
 ## Credits
 
 ### Textures:
 
-* Venus cloud texture map by **[Astra-Planetshine (DeviantArt)][RSSVE:AstraPlanetshine]**
-* Earth cloud and city lights texture maps by **[NASA Visible Earth][RSSVE:NASA-VE]**
+* Venus cloud texture by **[Astra-Planetshine (DeviantArt)][RSSVE:AstraPlanetshine]**
+* Earth cloud and city lights textures by **[NASA Visible Earth][RSSVE:NASA-VE]**
 * Earth and Venus cloud detail textures; Earth city detail textures by **[Real Visual Enhancements (RVE)][RSSVE:RVE]**
-* Jupiter texture (used for exporting some basic cloud texture maps) by **Vleider** (redistributed by **[The Celestia Motherlode][RSSVE:TCM]**)
-* Saturn texture (used for exporting some basic cloud texture maps) by **Runar Thorvaldsen**, **Dr. Fridger Schremmp** and **Grant Hutchinson** (redistributed by **[The Celestia Motherlode][RSSVE:TCM]**)
+* Saturn base texture (used for creating the cloud textures) by **Runar Thorvaldsen**, **Dr. Fridger Schremmp** and **Grant Hutchinson** (redistributed by **[The Celestia Motherlode][RSSVE:TCM]**)
 * Saturn ring texture by **[CICLOPS][RSSVE:CICLOPS]** (Cassini Imaging Central Laboratory For Operations - image preparation by **Daren Wilson** and **Carolyn Porco**)
-* Uranus and Neptune textures (used for exporting some basic cloud texture maps) by **[JHT's Planetary Pixel Emporium][RSSVE:PPE]**
+* Neptune base texture (used for creating the cloud textures) by **[JHT's Planetary Pixel Emporium][RSSVE:PPE]**
 * Gas giants cloud detail texture by **[JunoCam Image Processing Gallery][RSSVE:JunoCam]** - image processing by **Evgeni Lebedev**
 
 ### Programming:
@@ -46,6 +52,8 @@ _NOTE: For the visual pack of EVE/RSSVE/Scatterer it is important to install the
 ## License:
 
 RSSVE is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC-BY-NC-SA 4.0)** license. You should have received a copy of the license along with this work. If not, visit the **[official Creative Commons web page][RSSVE:license]**.
+
+Cloud cubemap textures are licensed under an **All Rights Reserved (ARR)** license. You may not redistribute or re-use these assets without express permission from the author.
 
 **Note that the above license does not cover mod packs. Redistributing this work via a mod pack is not allowed.**
 
